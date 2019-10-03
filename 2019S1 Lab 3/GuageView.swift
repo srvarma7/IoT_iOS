@@ -15,14 +15,19 @@ class GaugeView: UIView {
     var valueColor = UIColor.gray
     
     var segmentWidth: CGFloat = 20
-    var segmentColors = [UIColor(red: 0, green: 1, blue: 0, alpha: 1), UIColor(red: 0.2, green: 0.8, blue: 0, alpha: 1), UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 0.7), UIColor(red: 0.8, green: 0.2, blue: 0, alpha: 0.7), UIColor(red: 1, green: 0, blue: 0, alpha: 1)]
+    var segmentColors = [
+        UIColor(red: 0, green: 1, blue: 0, alpha: 1),
+        UIColor(red: 173/255, green: 255/255, blue: 47/255, alpha: 1),
+        UIColor(red: 204/255, green: 204/255, blue: 0, alpha: 1),
+        UIColor(red: 0.8, green: 0.2, blue: 0, alpha: 0.7),
+        UIColor(red: 1, green: 0, blue: 0, alpha: 0.8)]
     
     var totalAngle: CGFloat = 270
     var rotation: CGFloat = -135
     
-    var outerCenterDiscColor = UIColor(white: 0.9, alpha: 1)
+    var outerCenterDiscColor =  UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha:0.3)
     var outerCenterDiscWidth: CGFloat = 35
-    var innerCenterDiscColor = UIColor(white: 0.7, alpha: 1)
+    var innerCenterDiscColor =  UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 0.8)
     var innerCenterDiscWidth: CGFloat = 25
     
     var majorTickColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -34,11 +39,12 @@ class GaugeView: UIView {
     var minorTickLength: CGFloat = 20
     var minorTickCount = 3
     
-    var needleColor = UIColor(white: 0.7, alpha: 1)
+    var needleColor =  UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
     var needleWidth: CGFloat = 2
     let needle = UIView()
     
-    var outerBezelColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    var outerBezelColor =  UIColor(red: 150/255, green: 20/255, blue: 50/255, alpha: 1)
+    //var outerBezelColor =  UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     var outerBezelWidth: CGFloat = 5
     var innerBezelColor = UIColor.white
     var innerBezelWidth: CGFloat = 5

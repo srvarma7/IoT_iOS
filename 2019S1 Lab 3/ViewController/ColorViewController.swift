@@ -62,6 +62,7 @@ class ColorViewController: UIViewController, DatabaseListener {
                 self.colorImageView.layer.borderWidth = 2
                 self.colorImageView.layer.borderColor = #colorLiteral(red: 0.8665331536, green: 0.1220010404, blue: 0, alpha: 1)
                 self.colorImageView.clipsToBounds = true
+                self.setRecentColorImages(dataList: dataList)
             })
             UIView.animate(withDuration: 0.3) {
                 
@@ -93,6 +94,10 @@ class ColorViewController: UIViewController, DatabaseListener {
         print(UIScreen.main.bounds.width)
         view.addSubview(gaugeView1)
         view.addSubview(gaugeView2)
+        
+    }
+    
+    func setRecentColorImages(dataList: [SensorData]){
         
     }
 
