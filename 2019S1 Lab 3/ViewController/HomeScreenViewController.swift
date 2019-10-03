@@ -46,7 +46,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
             tempLabel.text = latestData.temperature + " °C"
             //var time: String = latestData.iSODate.substring(to: <#T##String.Index#>)
             //print(latestData.iSODate.substring())
-            timeLabel.text = "Last refreshed at " + latestData.date
+            timeLabel.text = "Last refreshed at " + latestData.time
             //loadMoodAndTemp()
             
         }

@@ -65,13 +65,16 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
         //cell.imageView!.backgroundColor = UIColor(red: CGFloat(rd), green: CGFloat(gr), blue: CGFloat(bl), alpha: 0.85)
         cell.imageView?.image = UIImage(named: "40x40.png")
         UIView.animate(withDuration: 1, animations: {
-            cell.imageView?.backgroundColor = #colorLiteral(red: 0.7362376451, green: 0.06341100484, blue: 0.2567701936, alpha: 1)
+            let red = CGFloat(Float(data.red)!/255)
+            let green = CGFloat(Float(data.green)!/255)
+            let blue = CGFloat(Float(data.blue)!/255)
+            cell.imageView?.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.7)
             cell.imageView?.layer.cornerRadius = ((cell.imageView?.frame.size.width)!)/2
             cell.imageView?.layer.borderWidth = 1
         })
         cell.imageView?.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.textLabel?.text = "Date " + data.iSODate
-        cell.detailTextLabel?.text = "Time: " + data.date
+        cell.textLabel?.text = "Date " + data.date
+        cell.detailTextLabel?.text = "Time: " + data.time
         //cell.detailTextLabel?.text = "Temperature: " + data.temperature + "C  Pressure: " + data.pressure + "kPa  Altitude: " + data.altitude + "m"
 
         return cell

@@ -26,12 +26,12 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         isoDateLabel.text = currentData.date
-        unixtimeLabel.text = currentData.unixTime
+        unixtimeLabel.text = currentData.time
         redLabel.text = currentData.red
         blueLabel.text = currentData.blue
         greenLabel.text = currentData.green
-        tempLabel.text = currentData.temperature
-        pressureLabel.text = currentData.pressure
-        altitudeLabel.text = currentData.altitude
+        tempLabel.text = currentData.temperature + " °C"
+        pressureLabel.text = currentData.pressure + " kPa"
+        altitudeLabel.text = currentData.altitude + " m"
     }
 }
