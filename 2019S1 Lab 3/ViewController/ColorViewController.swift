@@ -12,6 +12,18 @@ class ColorViewController: UIViewController, DatabaseListener {
 
     @IBOutlet weak var colorImageView: UIImageView!
     
+    @IBOutlet weak var i1: UIImageView!
+    @IBOutlet weak var i2: UIImageView!
+    @IBOutlet weak var i3: UIImageView!
+    @IBOutlet weak var i4: UIImageView!
+    @IBOutlet weak var i5: UIImageView!
+    @IBOutlet weak var i6: UIImageView!
+    @IBOutlet weak var i7: UIImageView!
+    @IBOutlet weak var i8: UIImageView!
+    @IBOutlet weak var i9: UIImageView!
+    @IBOutlet weak var i10: UIImageView!
+    
+    
     let center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
     var gaugeView1 = GaugeView()
     var gaugeView2 = GaugeView()
@@ -59,8 +71,9 @@ class ColorViewController: UIViewController, DatabaseListener {
             print(temp, " in color controller")
             UIView.animate(withDuration: 1, animations: {
                 self.colorImageView.layer.cornerRadius = (self.colorImageView.frame.size.width)/2
-                self.colorImageView.layer.borderWidth = 2
+                self.colorImageView.layer.borderWidth = 5
                 self.colorImageView.layer.borderColor = #colorLiteral(red: 0.8665331536, green: 0.1220010404, blue: 0, alpha: 1)
+                self.colorImageView.layer.borderWidth = 2
                 self.colorImageView.clipsToBounds = true
             })
             UIView.animate(withDuration: 0.3) {

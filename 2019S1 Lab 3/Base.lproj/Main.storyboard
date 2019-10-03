@@ -320,6 +320,16 @@
                     <navigationItem key="navigationItem" id="0Vb-cA-QoD"/>
                     <connections>
                         <outlet property="colorImageView" destination="C7l-LK-zMM" id="Y9V-OC-O9I"/>
+                        <outlet property="i1" destination="X4k-xW-sIY" id="hY3-Jj-mT8"/>
+                        <outlet property="i10" destination="EAb-4r-CoM" id="57w-mr-vqX"/>
+                        <outlet property="i2" destination="bBy-GY-jgI" id="raU-pR-Whe"/>
+                        <outlet property="i3" destination="9cL-Wh-Fur" id="eql-PC-A8V"/>
+                        <outlet property="i4" destination="0A3-Gb-sft" id="vP8-B9-unn"/>
+                        <outlet property="i5" destination="wfe-q1-l9i" id="JXI-Jz-eM4"/>
+                        <outlet property="i6" destination="F3y-HJ-dVe" id="Rcb-hX-FmR"/>
+                        <outlet property="i7" destination="bTQ-y7-DBe" id="RFV-pN-jyd"/>
+                        <outlet property="i8" destination="Cry-18-oY8" id="TaC-AL-UDm"/>
+                        <outlet property="i9" destination="68V-hi-r9Z" id="hQc-eK-kas"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98j-WM-vfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
