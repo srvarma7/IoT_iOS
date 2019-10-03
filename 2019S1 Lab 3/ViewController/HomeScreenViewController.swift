@@ -62,6 +62,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         databaseController?.removeListener(listener: self)
+        
     }
     
     func loadImageAndMood(temp: Float) {
