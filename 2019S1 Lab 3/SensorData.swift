@@ -15,12 +15,12 @@ class SensorData{
     var unixTime: String
     var blue: String
     var pressure: String
-    var iSODate: String
+    var date: String
     var temperature: String
     var number: Int
     var red: String
     var green: String
-    var date: String
+    var time: String
     
     init()
     {
@@ -29,11 +29,11 @@ class SensorData{
         unixTime = " "
         blue = " "
         pressure = " "
-        iSODate = " "
+        date = " "
         temperature = " "
         number = 0
         red = " "
         green = " "
-        date = " "
+        time = " "
     }
 }

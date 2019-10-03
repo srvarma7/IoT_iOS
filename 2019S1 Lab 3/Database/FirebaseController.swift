@@ -70,12 +70,11 @@ class FirebaseController: NSObject, DatabaseProtocol {
             let altitude = change.document.data()["Altitude"] as! String
             
             let number = change.document.data()["Number"] as! Int
-            let iSODate = change.document.data()["ISODate"] as! String
-            let unixTime = change.document.data()["UnixTime"] as! String
             let date = change.document.data()["Date"] as! String
+            let unixTime = change.document.data()["UnixTime"] as! String
+            let time = change.document.data()["Time"] as! String
             print(change)
             
-            print("inside if ")
             let newData = SensorData()
             newData.red = red
             newData.blue = blue
@@ -84,9 +83,9 @@ class FirebaseController: NSObject, DatabaseProtocol {
             newData.temperature = temperature
             newData.pressure = pressure
             newData.number = number
-            newData.iSODate = iSODate
-            newData.unixTime = unixTime
             newData.date = date
+            newData.time = time
+            newData.unixTime = unixTime
             newData.id = documentRef
             dataList.append(newData)
             
@@ -145,7 +144,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
     }
     
     func dataChecker(data: DocumentChange) -> Bool{
-        let attributes = ["Red", "Blue", "Green", "Temperature", "Pressure", "Altitude", "ISODate", "UnixTime", "Date"]
+        let attributes = ["Red", "Blue", "Green", "Temperature", "Pressure", "Altitude", "Date", "UnixTime", "Time"]
         
         for value in attributes{
             if data.document.data()[value] as? String == nil{
