@@ -52,17 +52,34 @@ class HomeScreenViewController: UIViewController, DatabaseListener {
         }
     }
     
-    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        UIView.animate(withDuration: 1, animations: {
+//        //self.imageView.transform = CGAffineTransform(translationX: 0, y: 200)
+//        })
+//    }
+//    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        UIView.animate(withDuration: 1, animations: {
+//            self.imageView.transform = CGAffineTransform(translationX: 0, y: -200)
+//        })
+//    
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         databaseController?.addListener(listener: self)
+//        UIView.animate(withDuration: 1, animations: {
+//        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         databaseController?.removeListener(listener: self)
-        
+//        UIView.animate(withDuration: 1, animations: {
+//            self.imageView.transform = CGAffineTransform(translationX: 0, y: 200)
+//        })
     }
     
     func loadImageAndMood(temp: Float) {

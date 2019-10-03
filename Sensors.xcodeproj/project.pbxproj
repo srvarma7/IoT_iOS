@@ -72,7 +72,7 @@
 		6D6BF11823450BFB00CC3F09 /* 6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 6.gif; sourceTree = "<group>"; };
 		6D6BF11E234518F100CC3F09 /* Pi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pi.png; sourceTree = "<group>"; };
 		7814D1A72244648900BC5CA6 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
-		78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2019S1 Lab 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78407C0E223B17EB008EF5ED /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78407C11223B17EB008EF5ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78407C16223B17EB008EF5ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78407C18223B17EC008EF5ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		78407C0F223B17EB008EF5ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */,
+				78407C0E223B17EB008EF5ED /* Sensors.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,9 +196,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78407C0D223B17EB008EF5ED /* 2019S1 Lab 3 */ = {
+		78407C0D223B17EB008EF5ED /* Sensors */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "2019S1 Lab 3" */;
+			buildConfigurationList = 78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "Sensors" */;
 			buildPhases = (
 				DC116D1B2FDF1594E45EF710 /* [CP] Check Pods Manifest.lock */,
 				78407C0A223B17EB008EF5ED /* Sources */,
@@ -210,9 +210,9 @@
 			);
 			dependencies = (
 			);
-			name = "2019S1 Lab 3";
+			name = Sensors;
 			productName = "2019S1 Lab 3";
-			productReference = 78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */;
+			productReference = 78407C0E223B17EB008EF5ED /* Sensors.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "2019S1 Lab 3" */;
+			buildConfigurationList = 78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "Sensors" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -243,7 +243,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78407C0D223B17EB008EF5ED /* 2019S1 Lab 3 */,
+				78407C0D223B17EB008EF5ED /* Sensors */,
 			);
 		};
 /* End PBXProject section */
@@ -528,7 +528,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "2019S1 Lab 3" */ = {
+		78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "Sensors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78407C1E223B17EC008EF5ED /* Debug */,
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "2019S1 Lab 3" */ = {
+		78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "Sensors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78407C21223B17EC008EF5ED /* Debug */,
