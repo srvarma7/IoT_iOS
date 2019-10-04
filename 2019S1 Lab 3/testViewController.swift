@@ -9,28 +9,28 @@
 import UIKit
 
 class testViewController: UIViewController {
-
-    @IBOutlet weak var topImage: UIImageView!
-    @IBOutlet weak var bottomImage: UIImageView!
+    
+    @IBOutlet weak var top: UIImageView!
+    @IBOutlet weak var btm: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        top.image = UIImage(named: "40x40.png")
+        UIView.animate(withDuration: 1, animations: {
+            self.top.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
+            self.top.layer.cornerRadius = (self.top.frame.size.width)/2
+            self.top.clipsToBounds = true
+        })
+        
+        btm.image = UIImage(named: "40x40.png")
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.btm.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
+            self.btm.layer.cornerRadius = (self.btm.frame.size.width)/2
+            self.btm.clipsToBounds = true
+        })
 
-        topImage.loadGif(name: "4")
-        bottomImage.loadGif(name: "6")
-        //topImage.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-        
-        let overlayView = topImage.image?.withRenderingMode(.alwaysTemplate)
-        
-        topImage.tintColor = UIColor.yellow
-        topImage.image = overlayView
-        
-        
-//        overlayView.frame = topImage.frame
-//        overlayView.tintColor = .red
-//        overlayView.alpha = 1
-//        view.addSubview(overlayView)
-        // Do any additional setup after loading the view.
     }
     
 

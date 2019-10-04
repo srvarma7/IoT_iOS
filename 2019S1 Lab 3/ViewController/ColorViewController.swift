@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ColorViewController: UIViewController, DatabaseListener {
 
     @IBOutlet weak var colorImageView: UIImageView!
@@ -24,6 +25,7 @@ class ColorViewController: UIViewController, DatabaseListener {
     @IBOutlet weak var i9: UIImageView!
     @IBOutlet weak var i10: UIImageView!
     var imageViewList = [UIImageView]()
+
     
     let center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
     var gaugeView1 = GaugeView()
@@ -240,5 +242,5 @@ class ColorViewController: UIViewController, DatabaseListener {
         imageView.layer.borderWidth = 2
         imageView.clipsToBounds = true
     }
-
+    
 }

@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location Permission</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location Permission</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location Permission</string>
 	<key>CFBundleDisplayName</key>
 	<string>Sensors</string>
 	<key>CFBundleExecutable</key>

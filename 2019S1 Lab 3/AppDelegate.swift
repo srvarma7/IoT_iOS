@@ -6,6 +6,13 @@
 //  Copyright © 2019 Michael Wybrow. All rights reserved.
 //
 
+
+//Tab bar icons references
+//Icon made by Freepik from www.flaticon.com
+
+
+
+
 import UIKit
 
 @UIApplicationMain

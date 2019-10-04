@@ -34,6 +34,9 @@
 		6D6BF11C23450BFB00CC3F09 /* 5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF11723450BFB00CC3F09 /* 5.gif */; };
 		6D6BF11D23450BFB00CC3F09 /* 6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF11823450BFB00CC3F09 /* 6.gif */; };
 		6D6BF11F234518F100CC3F09 /* Pi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF11E234518F100CC3F09 /* Pi.png */; };
+		6DF38CB023475B4E00AE4E8C /* hot(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 6DF38CAF23475B4D00AE4E8C /* hot(1).png */; };
+		6DF38CB223475C0200AE4E8C /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DF38CB123475C0200AE4E8C /* more.png */; };
+		6DF38CB423475C7000AE4E8C /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DF38CB323475C7000AE4E8C /* history.png */; };
 		7814D1A82244648900BC5CA6 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7814D1A72244648900BC5CA6 /* DatabaseProtocol.swift */; };
 		78407C12223B17EB008EF5ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407C11223B17EB008EF5ED /* AppDelegate.swift */; };
 		78407C17223B17EB008EF5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78407C15223B17EB008EF5ED /* Main.storyboard */; };
@@ -44,10 +47,10 @@
 
 /* Begin PBXFileReference section */
 		18FDBBFBBBE72507631F8AE8 /* Pods_2019S1_Lab_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2019S1_Lab_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		320C3DCE2345F6F600D5CF0E /* pi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pi.jpg; sourceTree = "<group>"; };
+		320C3DCE2345F6F600D5CF0E /* pi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pi.jpg; path = ../pi.jpg; sourceTree = "<group>"; };
 		320C3DD02345FE8100D5CF0E /* white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white.jpg; sourceTree = "<group>"; };
 		320C3DD22345FF2700D5CF0E /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
-		320C3DD42345FFCC00D5CF0E /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		320C3DD42345FFCC00D5CF0E /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 40x40.png; path = ../40x40.png; sourceTree = "<group>"; };
 		328CBDCE233F523000AA1A9C /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		32D87312234382C50027949C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		32D87314234384B90027949C /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
@@ -71,6 +74,9 @@
 		6D6BF11723450BFB00CC3F09 /* 5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 5.gif; sourceTree = "<group>"; };
 		6D6BF11823450BFB00CC3F09 /* 6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 6.gif; sourceTree = "<group>"; };
 		6D6BF11E234518F100CC3F09 /* Pi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pi.png; sourceTree = "<group>"; };
+		6DF38CAF23475B4D00AE4E8C /* hot(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot(1).png"; sourceTree = "<group>"; };
+		6DF38CB123475C0200AE4E8C /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		6DF38CB323475C7000AE4E8C /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
 		7814D1A72244648900BC5CA6 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		78407C0E223B17EB008EF5ED /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78407C11223B17EB008EF5ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,13 @@
 		6D65A50F23447DFE004D24EA /* GIF */ = {
 			isa = PBXGroup;
 			children = (
+				6DF38CAF23475B4D00AE4E8C /* hot(1).png */,
+				6DF38CB323475C7000AE4E8C /* history.png */,
+				6DF38CB123475C0200AE4E8C /* more.png */,
+				320C3DD42345FFCC00D5CF0E /* 40x40.png */,
+				320C3DD22345FF2700D5CF0E /* a.png */,
+				320C3DD02345FE8100D5CF0E /* white.jpg */,
+				320C3DCE2345F6F600D5CF0E /* pi.jpg */,
 				6D6BF11E234518F100CC3F09 /* Pi.png */,
 				6D6BF11423450BF900CC3F09 /* 1.jpg */,
 				6D6BF11623450BFA00CC3F09 /* 3.jpg */,
@@ -163,10 +176,6 @@
 		78407C10223B17EB008EF5ED /* 2019S1 Lab 3 */ = {
 			isa = PBXGroup;
 			children = (
-				320C3DD42345FFCC00D5CF0E /* 40x40.png */,
-				320C3DD22345FF2700D5CF0E /* a.png */,
-				320C3DD02345FE8100D5CF0E /* white.jpg */,
-				320C3DCE2345F6F600D5CF0E /* pi.jpg */,
 				6D6BF1102345083400CC3F09 /* testViewController.swift */,
 				6D65A51D2344E5DD004D24EA /* GuageView.swift */,
 				78407C11223B17EB008EF5ED /* AppDelegate.swift */,
@@ -259,12 +268,15 @@
 				6D6BF11C23450BFB00CC3F09 /* 5.gif in Resources */,
 				320C3DD32345FF2800D5CF0E /* a.png in Resources */,
 				6D6BF11D23450BFB00CC3F09 /* 6.gif in Resources */,
+				6DF38CB223475C0200AE4E8C /* more.png in Resources */,
 				78407C1C223B17EC008EF5ED /* LaunchScreen.storyboard in Resources */,
 				6D6BF113234509F700CC3F09 /* 2.jpg in Resources */,
+				6DF38CB423475C7000AE4E8C /* history.png in Resources */,
 				6D6BF11B23450BFB00CC3F09 /* 3.jpg in Resources */,
 				32D87313234382C50027949C /* GoogleService-Info.plist in Resources */,
 				6D65A51523447E52004D24EA /* tCN.gif in Resources */,
 				6D6BF11F234518F100CC3F09 /* Pi.png in Resources */,
+				6DF38CB023475B4E00AE4E8C /* hot(1).png in Resources */,
 				320C3DD12345FE8100D5CF0E /* white.jpg in Resources */,
 				6D65A51923447E52004D24EA /* tC.gif in Resources */,
 				6D65A51623447E52004D24EA /* tNH.gif in Resources */,
