@@ -8,14 +8,13 @@
 
 import UIKit
 
+//Creates 2 guages for pressure and altitude and shows the resent color along with the 10 last recent colors from database
 
 class ColorViewController: UIViewController, DatabaseListener {
 
     @IBOutlet weak var top: UIImageView!
     @IBOutlet weak var topTitle: UILabel!
-    
     @IBOutlet weak var colorImageView: UIImageView!
-    
     @IBOutlet weak var laastRefreshLabel: UILabel!
     @IBOutlet weak var i1: UIImageView!
     @IBOutlet weak var i2: UIImageView!
@@ -27,13 +26,11 @@ class ColorViewController: UIViewController, DatabaseListener {
     @IBOutlet weak var i8: UIImageView!
     @IBOutlet weak var i9: UIImageView!
     @IBOutlet weak var i10: UIImageView!
-    var imageViewList = [UIImageView]()
-
     
+    var imageViewList = [UIImageView]()
     let center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
     var gaugeView1 = GaugeView()
     var gaugeView2 = GaugeView()
-    
     var temp: Int = 0
     var latestData = SensorData()
     weak var databaseController: DatabaseProtocol?
@@ -46,14 +43,11 @@ class ColorViewController: UIViewController, DatabaseListener {
         databaseController = appDelegate!.databaseController
         UIView.animate(withDuration: 6) {
             self.colorImageView.tintColor = UIColor(red: 90/255, green: 43/255, blue: 28/255, alpha: 1.0)
-            
         }
-        
+        //setting the needle and its values
         gaugeView1 = GaugeView(frame: CGRect(x: center.x - 170, y: center.y - 250, width: 150, height: 150))
         gaugeView2 = GaugeView(frame: CGRect(x: center.x + 20, y: center.y - 250, width: 150, height: 150))
         createGaugeSubView()
-        
-        imageViewList = [colorImageView,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,37 +67,29 @@ class ColorViewController: UIViewController, DatabaseListener {
         databaseController?.removeListener(listener: self)
     }
     
+    //database listeneer for getting values for colors and guages
     func onDataListChange(change: DatabaseChange, dataList: [SensorData]) {
         var sortedDataList = dataList
         sortedDataList.sort(by: {$0.unixTime > $1.unixTime})
-        print("in home screen", dataList.count)
         if !dataList.isEmpty {
-            
-            print(dataList.count, "count in color")
             latestData = sortedDataList[sortedDataList.startIndex]
             laastRefreshLabel.text = "Last refreshed at " + latestData.time
             var red = CGFloat(Float(latestData.red)!/255)
             var green = CGFloat(Float(latestData.green)!/255)
             var blue = CGFloat(Float(latestData.blue)!/255)
-            print(temp, " in color controller")
             UIView.animate(withDuration: 1, animations: {
                 self.colorImageView.layer.cornerRadius = (self.colorImageView.frame.size.width)/2
                 self.colorImageView.layer.borderWidth = 5
                 self.colorImageView.layer.borderColor = #colorLiteral(red: 0.8665331536, green: 0.1220010404, blue: 0, alpha: 1)
                 self.colorImageView.layer.borderWidth = 2
                 self.colorImageView.clipsToBounds = true
-                //self.setRecentColorImages(data: dataList[1], imageView: self.i1)
-
             })
             UIView.animate(withDuration: 0.3) {
-                
                 self.colorImageView.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.85)
-
                 if sortedDataList.count >= 2{
                     red = CGFloat(Float(sortedDataList[1].red)!/255)
                     green = CGFloat(Float(sortedDataList[1].green)!/255)
                     blue = CGFloat(Float(sortedDataList[1].blue)!/255)
-                    print("in sensor color in if for 2nd in datalist")
                     self.i1.image = UIImage(named: "40x40.png")
                     self.i1.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.85)
                     self.i1.layer.cornerRadius = (self.i1.frame.size.width)/2
@@ -119,7 +105,6 @@ class ColorViewController: UIViewController, DatabaseListener {
                     self.i2.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 0.85)
                     self.i2.layer.cornerRadius = (self.i2.frame.size.width)/2
                     self.i2.clipsToBounds = true
-                    
                 }
                 
                 if sortedDataList.count >= 4{
@@ -225,6 +210,7 @@ class ColorViewController: UIViewController, DatabaseListener {
         }
     }
     
+    //a method that adds the guages as subviews.
     func createGaugeSubView(){
         let text1 = UILabel(frame: CGRect(x: center.x - 130, y: center.y - 150    , width: 150, height: 150))
         let text2 = UILabel(frame: CGRect(x: center.x + 60, y: center.y - 150    , width: 150, height: 150))
@@ -235,12 +221,12 @@ class ColorViewController: UIViewController, DatabaseListener {
         
         gaugeView1.backgroundColor = .clear
         gaugeView2.backgroundColor = .clear
-        print(UIScreen.main.bounds.width)
         view.addSubview(gaugeView1)
         view.addSubview(gaugeView2)
         
     }
     
+    //Method to set the most recent color to the imageview from the database when called
     func setRecentColorImages(data: SensorData, imageView: UIImageView){
         
         imageView.layer.cornerRadius = (imageView.frame.size.width)/2

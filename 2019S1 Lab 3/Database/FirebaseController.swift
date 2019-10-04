@@ -6,6 +6,8 @@
 //  Copyright © 2019 Michael Wybrow. All rights reserved.
 //
 
+//To fetch data from Firebase in realtime
+
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -37,6 +39,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
         }
     }
     
+    //To connect and get data from the database
     func setUpListeners() {
         
         sensorRef = database.collection("Sensor")
@@ -50,12 +53,12 @@ class FirebaseController: NSObject, DatabaseProtocol {
         }
     }
     
+    //Parse Data from document to Sensor class type
     func parseHeroesSnapshot(snapshot: QuerySnapshot){
         
         snapshot.documentChanges.forEach { change in
             
             let documentRef = change.document.documentID
-            print(documentRef)
             
             if !dataChecker(data: change){
                 return
@@ -73,7 +76,6 @@ class FirebaseController: NSObject, DatabaseProtocol {
             let date = change.document.data()["Date"] as! String
             let unixTime = change.document.data()["UnixTime"] as! String
             let time = change.document.data()["Time"] as! String
-            print(change)
             
             let newData = SensorData()
             newData.red = red
@@ -88,46 +90,16 @@ class FirebaseController: NSObject, DatabaseProtocol {
             newData.unixTime = unixTime
             newData.id = documentRef
             dataList.append(newData)
-            
-//            if change.type == .removed {
-//                print("Removed Data: \(change.document.data())")
-//                if let index = getDataIndexByID(reference: documentRef) {
-//                    dataList.remove(at: index)
-//                }
-//            }
-            
         }
         
         listeners.invoke { (listener) in
             if listener.listenerType == ListenerType.data || listener.listenerType == ListenerType.all {
-                print(dataList.count , "in controller")
                 listener.onDataListChange(change: .update, dataList: dataList)
             }
         }
     }
-    
-//    func getDataIndexByID(reference: String) -> Int? {
-//
-//        for data in dataList {
-//            if(data.id == reference) {
-//                return dataList.firstIndex(where: {$0 === data})
-//            }
-//        }
-//        return nil
-//
-//    }
-//
-//    func getDataByID(reference: String) -> SensorData? {
-//
-//        for data in dataList {
-//            if(data.id == reference) {
-//                return data
-//            }
-//        }
-//        return nil
-//
-//    }
-    
+
+    //Protocol for adding listener to a viewController
     func addListener(listener: DatabaseListener) {
         
         listeners.addDelegate(listener)
@@ -137,12 +109,14 @@ class FirebaseController: NSObject, DatabaseProtocol {
         
     }
     
+    //Protocol tp remove listener from a viewController
     func removeListener(listener: DatabaseListener) {
         
         listeners.removeDelegate(listener)
         
     }
     
+    //Function to check nil values if any when parsing the data from firebase
     func dataChecker(data: DocumentChange) -> Bool{
         let attributes = ["Red", "Blue", "Green", "Temperature", "Pressure", "Altitude", "Date", "UnixTime", "Time"]
         

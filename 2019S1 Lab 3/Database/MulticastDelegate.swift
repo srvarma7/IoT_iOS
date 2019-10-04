@@ -5,6 +5,8 @@
 //  Copyright © 2019 Monash University. All rights reserved.
 //
 
+//REFERENCE FROM FIT5140 TUTORIAL
+
 import Foundation
 
 class MulticastDelegate <T> {

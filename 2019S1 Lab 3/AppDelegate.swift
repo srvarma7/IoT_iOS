@@ -26,8 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
         databaseController = FirebaseController()
         
         
-        //Splash screen
         
+        //REFERENCE FROM https://github.com/vpetrenko90/launch-screen-animation
+        //Splash screen with raspberry logo
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
         self.window!.makeKeyAndVisible()

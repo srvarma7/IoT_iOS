@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+//structures for parsing JSON data from API
+
 struct JsonResponse: Codable {
     let name: String
     let id: Int
@@ -30,22 +32,16 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
     
     @IBOutlet weak var top: UIImageView!
     @IBOutlet weak var btm: UIImageView!
-    
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
     @IBOutlet weak var btmTempLabel: UILabel!
-    
-
     @IBOutlet weak var apiDescLabel: UILabel!
     @IBOutlet weak var apiTemp: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var apiIcon: UIImageView!
     @IBOutlet weak var apiLocationName: UILabel!
-    
     
     var apiTemperature = 0
     var lat = "-37.87"
@@ -55,87 +51,54 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
     var apiData = JsonResponse.self
     var temp: Float = 0.0
     var latestData = SensorData()
+    var listenerType = ListenerType.data
     weak var databaseController: DatabaseProtocol?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //TESTING GIF
-        //imageView.loadGif(name: "tCN")
         locationMng.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationMng.distanceFilter = 10
         locationMng.delegate = self
         locationMng.requestAlwaysAuthorization()
         locationMng.startUpdatingLocation()
         
-        
-        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate!.databaseController
-        // Do any additional setup after loading the view.
         getDataFromUrl()
-        
     }
     
-    var listenerType = ListenerType.data
     
+    //listener for the database
     func onDataListChange(change: DatabaseChange, dataList: [SensorData]) {
         var datalist = dataList
         datalist.sort(by: {$0.unixTime > $1.unixTime})
-        print("in home screen", dataList.count)
         if !dataList.isEmpty{
             latestData = datalist[datalist.startIndex]
-            temp = Float(latestData.temperature)! as! Float
-            print(temp, " In home controller")
+            temp = Float(latestData.temperature)!
             loadImageAndMood(temp: temp)
             btmTempLabel.text = latestData.temperature + " °C"
-            //var time: String = latestData.iSODate.substring(to: T##String.Index)
-            //print(latestData.iSODate.substring())
             timeLabel.text = "Last refreshed at " + latestData.time
-            //loadMoodAndTemp()
-            
+            loadImageAndMood(temp: Float(latestData.temperature)!)
         }
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        UIView.animate(withDuration: 1, animations: {
-//        //self.imageView.transform = CGAffineTransform(translationX: 0, y: 200)
-//        })
-//    }
-//    
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        UIView.animate(withDuration: 1, animations: {
-//            self.imageView.transform = CGAffineTransform(translationX: 0, y: -200)
-//        })
-//    
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         databaseController?.addListener(listener: self)
         
-        
-        
         top.image = UIImage(named: "40x40.png")
-        
         UIView.animate(withDuration: 3, animations: {
             self.top.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
             self.top.layer.cornerRadius = (self.top.frame.size.width)/2
             self.top.clipsToBounds = true
             
-            //self.apiTemp.text = self.latestData.temperature + " °C"
             self.apiLocationName.transform = CGAffineTransform(translationX: 0, y: -20)
-            //self.apiIcon.backgroundColor = .white
             self.apiDescLabel.transform = CGAffineTransform(translationX: 0, y: 135)
             self.apiTemp.transform = CGAffineTransform(translationX: 0, y: 175)
             self.apiIcon.transform = CGAffineTransform(translationX: 0, y: 215)
         })
         
         btm.image = UIImage(named: "40x40.png")
-        
         UIView.animate(withDuration: 3, animations: {
             self.btm.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
             self.btm.layer.cornerRadius = (self.btm.frame.size.width)/2
@@ -146,19 +109,15 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
                 self.btmTempLabel.transform = CGAffineTransform(translationX: 0, y: -175)
             })
         })
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         databaseController?.removeListener(listener: self)
-//        UIView.animate(withDuration: 1, animations: {
-//            self.imageView.transform = CGAffineTransform(translationX: 0, y: 200)
-//        })
     }
     
+    //a method that chnages the mood , description and other text changes when called
     func loadImageAndMood(temp: Float) {
-        
         if (temp <= 8) {
             imageView.loadGif(name: "tC")
             moodLabel.text = "Feeling Cold"
@@ -212,14 +171,13 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
         }
     }
     
+    //From Apple documentation
+    //Gets data and parses the JSON data into usable data
     func getDataFromUrl() {
-        
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=3af463d5d4d7916e155dd605e37db688")
         URLSession.shared.dataTask(with: url!) { data, _, _ in
             if let data = data {
-                print(data)
                 let resp = try? JSONDecoder().decode(JsonResponse.self, from: data)
-                print(self.lat + self.long)
                 let d: Double = round((resp?.main.temp)!)
                 let intTemp = Int(d)
                 self.apiTemperature = intTemp
@@ -227,13 +185,14 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
                     self.makeGetRequestImage(icon: (resp?.weather[0].icon)!)
                     self.apiLocationName.text = resp?.name
                     self.apiDescLabel.text = resp?.weather[0].description
-                    //self.apiDescLabel.textColor = .white
                     self.apiTemp.text = String(format: "%i", intTemp - 273) + " °C"
                 }
             }
             }.resume()
     }
     
+    //From Apple docs
+    //Gets image data from the API and sets the icon into image view for location's weather
     func makeGetRequestImage(icon: String){
         let url : String = "https://openweathermap.org/img/wn/" + icon + "@2x.png"
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -241,7 +200,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
         request.httpMethod = "GET"
         request.timeoutInterval = 60
         NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue(), completionHandler:{ (response:URLResponse!, data: Data!, error: Error!) -> Void in
-            DispatchQueue.main.async { // Correct
+            DispatchQueue.main.async {
                 self.apiIcon.backgroundColor = .clear
                 self.apiIcon.image = UIImage(data: data)
                 
@@ -249,12 +208,12 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
         })
     }
     
+    //Loccation manager that is called when location changes
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
         currentLocation = location.coordinate
         lat = String(format: "%f", currentLocation!.latitude)
         long = String(format: "%f", currentLocation!.longitude)
-        print(lat + long)
         getDataFromUrl()
     }
 

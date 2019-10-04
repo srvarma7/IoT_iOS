@@ -6,6 +6,8 @@
 //  Copyright © 2019 monash. All rights reserved.
 //
 
+//REFERENCE FROM https://www.hackingwithswift.com/articles/150/how-to-create-a-custom-gauge-control-using-uikit for GuageView
+
 import UIKit
 
 class GaugeView: UIView {
@@ -44,17 +46,15 @@ class GaugeView: UIView {
     let needle = UIView()
     
     var outerBezelColor =  UIColor(red: 150/255, green: 20/255, blue: 50/255, alpha: 1)
-    //var outerBezelColor =  UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     var outerBezelWidth: CGFloat = 5
     var innerBezelColor = UIColor.white
     var innerBezelWidth: CGFloat = 5
     
     var insideColor = UIColor.white
     
+    //dynamically animate the needle when values are changed
     var value: Int = 0 {
         didSet {
-            //valueLabel.text = String(value)
-            print(valueLabel.text)
             let needlePosition = CGFloat(value) / 100
             let movefrom = rotation
             let moveTo = rotation + totalAngle
@@ -73,6 +73,8 @@ class GaugeView: UIView {
         setUp()
     }
     
+    
+    //main function that draws the background and guages
     override func draw(_ rect: CGRect) {
         
         guard let context = UIGraphicsGetCurrentContext() else {
@@ -84,6 +86,7 @@ class GaugeView: UIView {
         drawCenterDisc(in: rect, context: context)
     }
     
+    //draw the background
     func drawBackground(in rect: CGRect, context: CGContext) {
 
         outerBezelColor.set()
@@ -100,6 +103,8 @@ class GaugeView: UIView {
         drawSegments(in: rect, context: context)
     }
     
+    
+    //draw the needle discs
     func drawCenterDisc(in rect: CGRect, context: CGContext) {
         context.saveGState()
         context.translateBy(x: rect.midX, y: rect.midY)
@@ -114,6 +119,8 @@ class GaugeView: UIView {
         context.restoreGState()
     }
     
+    //draw the segments for a guage view
+    //default are 5
     func drawSegments(in rect: CGRect, context: CGContext) {
 
         context.saveGState()
@@ -135,6 +142,7 @@ class GaugeView: UIView {
         context.restoreGState()
     }
     
+    //the separators in a segments
     func drawTicks(in rect: CGRect, context: CGContext) {
 
         context.saveGState()
@@ -184,6 +192,7 @@ class GaugeView: UIView {
         return number * .pi / 180
     }
     
+    //draws the needle and sets the lables
     func setUp() {
         
         valueLabel.font = valueFont
@@ -204,43 +213,3 @@ class GaugeView: UIView {
         addSubview(needle)
     }
 }
-//    func drawneedle(){
-//        let triangleLayer = CAShapeLayer()
-//        let shadowLayer = CAShapeLayer()
-//
-//        // 2
-//        triangleLayer.frame = bounds
-//        shadowLayer.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y + 5, width: bounds.width, height: bounds.height)
-//
-//        // 3
-//        let needlePath = UIBezierPath()
-//        needlePath.move(to: CGPoint(x: self.bounds.width/2, y: self.bounds.width * 0.95))
-//        needlePath.addLine(to: CGPoint(x: self.bounds.width * 0.47, y: self.bounds.width * 0.42))
-//        needlePath.addLine(to: CGPoint(x: self.bounds.width * 0.53, y: self.bounds.width * 0.42))
-//
-//        needlePath.close()
-//
-//        // 4
-//        triangleLayer.path = needlePath.cgPath
-//        shadowLayer.path = needlePath.cgPath
-//
-//        // 5
-//        triangleLayer.fillColor = needleColor.cgColor
-//        triangleLayer.strokeColor = needleColor.cgColor
-//        // 6
-//        layer.addSublayer(shadowLayer)
-//        layer.addSublayer(triangleLayer)
-//
-//        var firstAngle = radians(for: 0)
-//
-//        let degrees:CGFloat = 3.6 * 100 // Entire Arc is of 240 degrees
-//        let radians = degrees * .pi/(1.8*100)
-//
-//        let thisRadians = (arcAngle * 100) * .pi/(1.8*100)
-//        let theD = (radians - thisRadians)/2
-//        firstAngle += theD
-//        let needleValue = radians(for: self.needleValue) + firstAngle
-//        animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: 0, toValue: needleValue*1.05, duration: 0.5) {
-//            self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*1.05, toValue: needleValue*0.95, duration: 0.4, callBack: {
-//                self.animate(triangleLayer: triangleLayer, shadowLayer: shadowLayer, fromValue: needleValue*0.95, toValue: needleValue, duration: 0.6, callBack: {})
-//    }

@@ -26,7 +26,6 @@
 		6D65A51923447E52004D24EA /* tC.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D65A51423447E52004D24EA /* tC.gif */; };
 		6D65A51B2344A462004D24EA /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65A51A2344A462004D24EA /* ColorViewController.swift */; };
 		6D65A51E2344E5DD004D24EA /* GuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65A51D2344E5DD004D24EA /* GuageView.swift */; };
-		6D6BF1112345083400CC3F09 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6BF1102345083400CC3F09 /* testViewController.swift */; };
 		6D6BF113234509F700CC3F09 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF112234509F700CC3F09 /* 2.jpg */; };
 		6D6BF11923450BFB00CC3F09 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF11423450BF900CC3F09 /* 1.jpg */; };
 		6D6BF11A23450BFB00CC3F09 /* 4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D6BF11523450BFA00CC3F09 /* 4.gif */; };
@@ -66,7 +65,6 @@
 		6D65A51423447E52004D24EA /* tC.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tC.gif; sourceTree = "<group>"; };
 		6D65A51A2344A462004D24EA /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		6D65A51D2344E5DD004D24EA /* GuageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuageView.swift; sourceTree = "<group>"; };
-		6D6BF1102345083400CC3F09 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		6D6BF112234509F700CC3F09 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		6D6BF11423450BF900CC3F09 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		6D6BF11523450BFA00CC3F09 /* 4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 4.gif; sourceTree = "<group>"; };
@@ -137,10 +135,12 @@
 		6D65A51C2344A49A004D24EA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6D65A51D2344E5DD004D24EA /* GuageView.swift */,
 				32D8731B2343A7940027949C /* HomeScreenViewController.swift */,
 				6D65A51A2344A462004D24EA /* ColorViewController.swift */,
 				32D87317234389150027949C /* SensorDataTableViewController.swift */,
 				32D8731923439E790027949C /* DetailsViewController.swift */,
+				6D65A50D23447B0A004D24EA /* UIImage+Gif.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -151,6 +151,7 @@
 				7814D1A72244648900BC5CA6 /* DatabaseProtocol.swift */,
 				328CBDCE233F523000AA1A9C /* FirebaseController.swift */,
 				78EF364D2245B1BA00B42A0A /* MulticastDelegate.swift */,
+				32D87314234384B90027949C /* SensorData.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -176,12 +177,8 @@
 		78407C10223B17EB008EF5ED /* 2019S1 Lab 3 */ = {
 			isa = PBXGroup;
 			children = (
-				6D6BF1102345083400CC3F09 /* testViewController.swift */,
-				6D65A51D2344E5DD004D24EA /* GuageView.swift */,
 				78407C11223B17EB008EF5ED /* AppDelegate.swift */,
 				78407C15223B17EB008EF5ED /* Main.storyboard */,
-				32D87314234384B90027949C /* SensorData.swift */,
-				6D65A50D23447B0A004D24EA /* UIImage+Gif.swift */,
 				7814D1A62244646E00BC5CA6 /* Database */,
 				6D65A51C2344A49A004D24EA /* ViewController */,
 				6D65A50F23447DFE004D24EA /* GIF */,
@@ -354,7 +351,6 @@
 				6D65A50E23447B0A004D24EA /* UIImage+Gif.swift in Sources */,
 				78EF364E2245B1BA00B42A0A /* MulticastDelegate.swift in Sources */,
 				7814D1A82244648900BC5CA6 /* DatabaseProtocol.swift in Sources */,
-				6D6BF1112345083400CC3F09 /* testViewController.swift in Sources */,
 				6D65A51E2344E5DD004D24EA /* GuageView.swift in Sources */,
 				32D8731A23439E790027949C /* DetailsViewController.swift in Sources */,
 				32D87315234384B90027949C /* SensorData.swift in Sources */,

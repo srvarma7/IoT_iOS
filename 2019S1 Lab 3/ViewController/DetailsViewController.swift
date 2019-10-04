@@ -6,6 +6,10 @@
 //  Copyright © 2019 Michael Wybrow. All rights reserved.
 //
 
+
+//Displays the details from a selected table cell from the table view
+
+
 import UIKit
 
 

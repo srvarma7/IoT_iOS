@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Arne Bahlo. All rights reserved.
 //
 
+
+//REFERENCE FROM GITHUB BY Arne Bahlo https://github.com/swiftgif/SwiftGif
+
 import UIKit
 import ImageIO
 

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Michael Wybrow. All rights reserved.
 //
 
+//Displays the historical data from the database in a sorted order
+
 import UIKit
 
 class SensorDataTableViewController: UITableViewController, DatabaseListener {
@@ -13,7 +15,8 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
     var sensorDataList = [SensorData]()
     weak var databaseController: DatabaseProtocol?
     var selectedRow = SensorData()
-    //var delegate: respondT
+    var listenerType = ListenerType.data
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +27,10 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
         
     }
     
-    var listenerType = ListenerType.data
-    
+    //database listener for the firebase
     func onDataListChange(change: DatabaseChange, dataList: [SensorData]) {
         sensorDataList = dataList
         sensorDataList.sort(by: {$0.unixTime > $1.unixTime})
-        print("refreshed", sensorDataList.count)
         tableView.reloadData()
     }
     
@@ -44,25 +45,17 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return sensorDataList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
         let data = sensorDataList[indexPath.row]
-//        let rd = Float(data.red)!/255
-//        let gr = Float(data.green)!/255
-//        let bl = Float(data.blue)!/255
-        //cell.imageView?.image = UIColor(red: CGFloat(rd), green: CGFloat(gr), blue: CGFloat(bl), alpha: 0.85)
-        //cell.imageView!.backgroundColor = UIColor(red: CGFloat(rd), green: CGFloat(gr), blue: CGFloat(bl), alpha: 0.85)
         cell.imageView?.image = UIImage(named: "40x40.png")
         UIView.animate(withDuration: 1, animations: {
             let red = CGFloat(Float(data.red)!/255)
@@ -75,8 +68,6 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
         cell.imageView?.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         cell.textLabel?.text = "Date " + data.date
         cell.detailTextLabel?.text = "Time: " + data.time
-        //cell.detailTextLabel?.text = "Temperature: " + data.temperature + "C  Pressure: " + data.pressure + "kPa  Altitude: " + data.altitude + "m"
-
         return cell
     }
     
@@ -85,6 +76,7 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
         performSegue(withIdentifier: "toDetails", sender: self)
     }
 
+    //segue to the details screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
             let controller = segue.destination as! DetailsViewController
@@ -92,12 +84,12 @@ class SensorDataTableViewController: UITableViewController, DatabaseListener {
         }
     }
     
+    //REFERENCE https://stackoverflow.com/questions/31314412/how-to-resize-image-in-swift
     func resizeImage(image: UIImage, newSize: CGFloat) -> UIImage{
         UIGraphicsBeginImageContext(CGSize(width: newSize, height: newSize))
         image.draw(in: CGRect(x: 0, y: 0, width: newSize, height: newSize))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        print("\(image.size.height)    \(resizedImage.size.height)")
         return resizedImage
     }
     

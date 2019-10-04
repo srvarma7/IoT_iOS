@@ -6,6 +6,10 @@
 //  Copyright © 2019 Michael Wybrow. All rights reserved.
 //
 
+
+//The structure/class for parsing the received data into
+
+
 import Foundation
 
 class SensorData{
