@@ -11,6 +11,9 @@ import UIKit
 
 class ColorViewController: UIViewController, DatabaseListener {
 
+    @IBOutlet weak var top: UIImageView!
+    @IBOutlet weak var topTitle: UILabel!
+    
     @IBOutlet weak var colorImageView: UIImageView!
     
     @IBOutlet weak var laastRefreshLabel: UILabel!
@@ -56,6 +59,13 @@ class ColorViewController: UIViewController, DatabaseListener {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         databaseController?.addListener(listener: self)
+        UIView.animate(withDuration: 2, animations: {
+            self.topTitle.transform = CGAffineTransform(translationX: 0, y: 20)
+            self.top.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.top.backgroundColor = UIColor(red: 197/255, green: 26/255, blue: 74/255, alpha: 1)
+            self.top.layer.cornerRadius = (self.top.frame.size.width)/2
+            self.top.clipsToBounds = true
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {

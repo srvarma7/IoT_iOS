@@ -47,7 +47,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
     @IBOutlet weak var apiLocationName: UILabel!
     
     
-    
+    var apiTemperature = 0
     var lat = "-37.87"
     var long = "145.04"
     var currentLocation: CLLocationCoordinate2D?
@@ -158,25 +158,57 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
     }
     
     func loadImageAndMood(temp: Float) {
+        
         if (temp <= 8) {
             imageView.loadGif(name: "tC")
             moodLabel.text = "Feeling Cold"
+            if(apiTemperature < Int(temp)) {
+                descLabel.text = "Looks like you room is warmer than outside. Wear a jacket if you are going out... Stay at home unless you are Iceman ;P"
+            }
+            else {
+                descLabel.text = "Looks like you room is colder than outside. May be turn up the heater... Else good luck with making ice"
+            }
         }
         else if (temp > 8 && temp <= 15) {
             imageView.loadGif(name: "tCN")
             moodLabel.text = "Shivering"
+            if(apiTemperature < Int(temp)) {
+                descLabel.text = "Looks like you room is warmer than outside. Wear a jacket if you are going out..."
+            }
+            else {
+                descLabel.text = "Looks like you room is colder than outside. May be turn up the heater..."
+            }
         }
         else if (temp > 15 && temp <= 25) {
             imageView.loadGif(name: "tN")
             moodLabel.text = "Feeling Happy"
+            if(apiTemperature < Int(temp)) {
+                descLabel.text = "Looks like you room is warmer than outside. Nice weather for a casual walk..."
+                
+            }
+            else {
+                descLabel.text = "Looks like you room is colder than outside. Treat yourself with a cold drink..."
+            }
         }
         else if (temp > 25 && temp <= 31) {
             imageView.loadGif(name: "tNH")
             moodLabel.text = "Sweaty"
+            if(apiTemperature < Int(temp)) {
+                descLabel.text = "Looks like you room is warmer than outside. Visiting a beach and getting tanned is a good idea..."
+            }
+            else {
+                descLabel.text = "Looks like you room is colder than outside. Stay home and play video games..."
+            }
         }
         else {
             imageView.loadGif(name: "tH")
             moodLabel.text = "Feeling Hot"
+            if(apiTemperature < Int(temp)) {
+                descLabel.text = "Looks like you room is warmer than outside. You are on Fire... Get some help!!!! "
+            }
+            else {
+                descLabel.text = "Looks like you room is colder than outside. May be going for a swim is a good idea..."
+            }
         }
     }
     
@@ -190,6 +222,7 @@ class HomeScreenViewController: UIViewController, DatabaseListener, CLLocationMa
                 print(self.lat + self.long)
                 let d: Double = round((resp?.main.temp)!)
                 let intTemp = Int(d)
+                self.apiTemperature = intTemp
                 DispatchQueue.main.async {
                     self.makeGetRequestImage(icon: (resp?.weather[0].icon)!)
                     self.apiLocationName.text = resp?.name
