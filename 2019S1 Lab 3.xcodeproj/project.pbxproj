@@ -76,7 +76,7 @@
 		6DF38CB123475C0200AE4E8C /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 		6DF38CB323475C7000AE4E8C /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
 		7814D1A72244648900BC5CA6 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
-		78407C0E223B17EB008EF5ED /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2019S1 Lab 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78407C11223B17EB008EF5ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78407C16223B17EB008EF5ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78407C18223B17EC008EF5ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		78407C0F223B17EB008EF5ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78407C0E223B17EB008EF5ED /* Sensors.app */,
+				78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78407C0D223B17EB008EF5ED /* Sensors */ = {
+		78407C0D223B17EB008EF5ED /* 2019S1 Lab 3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "Sensors" */;
+			buildConfigurationList = 78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "2019S1 Lab 3" */;
 			buildPhases = (
 				DC116D1B2FDF1594E45EF710 /* [CP] Check Pods Manifest.lock */,
 				78407C0A223B17EB008EF5ED /* Sources */,
@@ -216,9 +216,9 @@
 			);
 			dependencies = (
 			);
-			name = Sensors;
+			name = "2019S1 Lab 3";
 			productName = "2019S1 Lab 3";
-			productReference = 78407C0E223B17EB008EF5ED /* Sensors.app */;
+			productReference = 78407C0E223B17EB008EF5ED /* 2019S1 Lab 3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -236,7 +236,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "Sensors" */;
+			buildConfigurationList = 78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "2019S1 Lab 3" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -249,7 +249,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78407C0D223B17EB008EF5ED /* Sensors */,
+				78407C0D223B17EB008EF5ED /* 2019S1 Lab 3 */,
 			);
 		};
 /* End PBXProject section */
@@ -293,31 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-2019S1 Lab 3/Pods-2019S1 Lab 3-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-2019S1 Lab 3/Pods-2019S1 Lab 3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-2019S1 Lab 3/Pods-2019S1 Lab 3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-2019S1 Lab 3/Pods-2019S1 Lab 3-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2019S1 Lab 3/Pods-2019S1 Lab 3-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC116D1B2FDF1594E45EF710 /* [CP] Check Pods Manifest.lock */ = {
@@ -536,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "Sensors" */ = {
+		78407C09223B17EB008EF5ED /* Build configuration list for PBXProject "2019S1 Lab 3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78407C1E223B17EC008EF5ED /* Debug */,
@@ -545,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "Sensors" */ = {
+		78407C20223B17EC008EF5ED /* Build configuration list for PBXNativeTarget "2019S1 Lab 3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78407C21223B17EC008EF5ED /* Debug */,
